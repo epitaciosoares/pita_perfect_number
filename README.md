@@ -59,7 +59,7 @@ Os números perfeitos são extremamente raros. Até hoje, apenas 51 números per
 
 ---
 
-## 🚀 Instalação
+## Instalação
 
 ### Passo 1: Clone o repositório
 
@@ -68,17 +68,28 @@ git clone https://github.com/seu-usuario/pita-perfect-number.git
 cd pita-perfect-number
 ```
 
-### Passo 2: Instale as dependências
+### Passo 2: No diretorio ppn_app Instale as dependências
 
 ```bash
-# [Comando específico da sua linguagem]
+flutter pub get
 ```
 
-### Passo 3: Execute a aplicação
+### Passo 3: No diretorio ppn_backend Instale as dependências
 
 ```bash
-# [Comando para executar]
+flutter pub get
+dart run build_runner build 
 ```
+
+### Passo 4: No diretorio ppn_backend execute a aplicação
+
+```bash
+  dart run .\bin\server.dart
+```
+
+
+### Passo 5: No diretorio ppn_app execute a aplicação
+
 
 ---
 
