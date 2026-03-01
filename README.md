@@ -1,4 +1,4 @@
-# 🔢 Pita - Calculadora de Números Perfeitos
+# Calculadora de Números Perfeitos
 
 [![Badge](https://img.shields.io/badge/status-active-brightgreen)](https://github.com)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
@@ -12,12 +12,7 @@ Um sistema educacional para estudo e cálculo de **números perfeitos**. Ferrame
 - [Sobre](#sobre)
 - [Funcionalidades](#funcionalidades)
 - [O que é um Número Perfeito?](#o-que-é-um-número-perfeito)
-- [Requisitos](#requisitos)
 - [Instalação](#instalação)
-- [Como Usar](#como-usar)
-- [Exemplos](#exemplos)
-- [Estrutura do Projeto](#estrutura-do-projeto)
-- [Contribuição](#contribuição)
 - [Licença](#licença)
 
 ---
@@ -48,14 +43,6 @@ Um **número perfeito** é um número natural que é igual à soma de seus divis
 - **496** = 1 + 2 + 4 + 8 + 16 + 31 + 62 + 124 + 248
 
 Os números perfeitos são extremamente raros. Até hoje, apenas 51 números perfeitos foram descobertos!
-
----
-
-## 📦 Requisitos
-
-- [Especificar linguagem de programação]
-- [Especificar versão mínima]
-- [Outras dependências, se houver]
 
 ---
 
@@ -90,49 +77,7 @@ dart run build_runner build
 
 ### Passo 5: No diretorio ppn_app execute a aplicação
 
-
----
-
-## Como Usar
-
-### Verificar um Número
-
-1. Abra a aplicação
-2. Selecione a opção "Verificar Número"
-3. Digite o número desejado
-4. Clique em "Verificar"
-5. Visualize o resultado e os divisores
-
-### Encontrar Números em um Intervalo
-
-1. Na interface principal, escolha "Buscar Intervalo"
-2. Digite o valor inicial
-3. Digite o valor final
-4. Clique em "Buscar"
-5. Visualize a lista de números perfeitos encontrados
-
----
-
-## Exemplos
-
-### Exemplo 1: Verificar se 28 é perfeito
-
-```
-Entrada: 28
-Saída: Sim, 28 é um número perfeito
-Divisores: 1, 2, 4, 7, 14
-Soma dos divisores: 28
-```
-
-### Exemplo 2: Buscar números perfeitos de 1 a 500
-
-```
-Intervalo: 1 a 500
-Resultado: 
-  - 6
-  - 28
-  - 496
-```
+só execute os apps na plataforma que preferir.
 
 ---
 
