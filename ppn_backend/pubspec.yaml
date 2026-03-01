@@ -1,0 +1,15 @@
+name: ppn_backend
+description: Pita Perfect Number Server.
+version: 1.0.0
+# repository: https://github.com/my_org/my_repo
+
+environment:
+  sdk: ^3.10.0
+
+dependencies:
+  vaden_security: ^1.0.0
+  vaden: ^1.0.2
+
+dev_dependencies:
+  build_runner: ^2.10.3
+  vaden_class_scanner: ^1.0.2
