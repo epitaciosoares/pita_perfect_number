@@ -21,8 +21,9 @@ class OpenAPIController {
 
   @Get('/openapi.json')
   Response getOpenApiJSON(Request request) {
-    return Response.ok(swaggerUI.schemaText, headers: {
-      'Content-Type': 'application/json',
-    });
+    return Response.ok(
+      swaggerUI.schemaText,
+      headers: {'Content-Type': 'application/json'},
+    );
   }
 }

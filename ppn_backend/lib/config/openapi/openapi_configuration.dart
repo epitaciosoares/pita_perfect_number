@@ -10,18 +10,14 @@ class OpenApiConfiguration {
     return OpenApi(
       version: '3.0.0',
       info: Info(
-        title: 'Vaden API',
+        title: 'PPN API',
         version: '1.0.0',
-        description: 'Vaden Backend example',
+        description: 'Backend API for Perfect Number operations',
       ),
-      servers: [
-        config.localServer,
-      ],
+      servers: [config.localServer],
       tags: config.tags,
       paths: config.paths,
-      components: Components(
-        schemas: config.schemas,
-      ),
+      components: Components(schemas: config.schemas),
     );
   }
 
@@ -37,4 +33,3 @@ class OpenApiConfiguration {
     );
   }
 }
-
