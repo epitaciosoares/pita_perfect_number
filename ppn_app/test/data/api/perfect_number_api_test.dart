@@ -3,6 +3,7 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:ppn_app/config/dependencies.dart';
 import 'package:ppn_app/data/api/perfect_number_api.dart';
 import 'package:ppn_app/domain/entities/perfect_number_entity.dart';
+import 'package:result_dart/result_dart.dart';
 
 void main() {
   test("Valida se um numero é Perfeito", () async {
@@ -13,7 +14,7 @@ void main() {
     // Act
     PerfectNumberEntity isPerfect = await PerfectNumberApiImpl(
       dio,
-    ).checkPerfectNumber(number);
+    ).checkPerfectNumber(number).getOrThrow();
 
     // Assert
     expect(isPerfect.isPerfect, true);
@@ -28,7 +29,7 @@ void main() {
     // Act
     List<PerfectNumberEntity> perfectNumbers = await PerfectNumberApiImpl(
       dio,
-    ).findPerfectNumber(start, end);
+    ).findPerfectNumber(start, end).getOrThrow();
 
     // Assert
     expect(perfectNumbers.length, 2);
