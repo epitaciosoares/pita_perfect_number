@@ -13,6 +13,14 @@ class _HomeState extends State<Home> {
   @override
   Widget build(BuildContext context) {
     var viewModel = context.watch<HomeViewmodel>();
-    return const Placeholder();
+    return Scaffold(
+      appBar: AppBar(title: const Text('Home')),
+      body: Center(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [Text('Home State: ${viewModel.state}')],
+        ),
+      ),
+    );
   }
 }
