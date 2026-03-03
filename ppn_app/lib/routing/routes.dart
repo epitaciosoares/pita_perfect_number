@@ -1,0 +1,1 @@
+const routePaths = (home: '/home');
