@@ -1,5 +1,6 @@
 import 'package:ppn_app/data/api/perfect_number_api.dart';
 import 'package:ppn_app/domain/entities/perfect_number_entity.dart';
+import 'package:ppn_app/domain/exceptions/app_esception.dart';
 import 'package:ppn_app/domain/repositories/perfect_number_repository.dart';
 import 'package:result_dart/result_dart.dart';
 
@@ -20,29 +21,41 @@ class PerfectNumberRepositoryImpl extends PerfectNumberRepository {
   PerfectNumberRepositoryImpl(this._api);
 
   @override
-  Future<List<PerfectNumberEntity>> findPerfectNumbers(
+  AsyncResult<List<PerfectNumberEntity>> findPerfectNumbers(
     int start,
     int end,
   ) async {
-    return await _api.findPerfectNumber(start, end).fold(
-      (onSuccess) => onSuccess,
-      (onError) {
-        return _searchPerfectNumbersOffline(start, end);
-      },
-    );
+    return await _api.findPerfectNumber(start, end);
   }
 
   @override
-  Future<PerfectNumberEntity> isPerfectNumber(int number) async {
-    return await _api.checkPerfectNumber(number).fold(
-      (onSuccess) => onSuccess,
-      (onError) {
-        return _findOfflinePerfectNumber(number);
-      },
-    );
+  AsyncResult<PerfectNumberEntity> isPerfectNumber(int number) async {
+    return await _api.checkPerfectNumber(number);
   }
 
-  List<PerfectNumberEntity> _searchPerfectNumbersOffline(int start, int end) {
+  bool _containIntoLocaList(int number) {
+    return _listPerfectNumbersMaxInt.any((element) => element.number == number);
+  }
+
+  @override
+  AsyncResult<PerfectNumberEntity> offlinePerfectNumber(int number) async {
+    if (_containIntoLocaList(number)) {
+      PerfectNumberEntity success = _listPerfectNumbersMaxInt.firstWhere(
+        (element) => element.number == number,
+      );
+      return Success(success);
+    } else {
+      return Failure(
+        SilentException(message: 'Número $number não é perfeito.'),
+      );
+    }
+  }
+
+  @override
+  AsyncResult<List<PerfectNumberEntity>> offlinePerfectNumbers(
+    int start,
+    int end,
+  ) async {
     final perfectNumbers = <PerfectNumberEntity>[];
 
     for (int num = start; num <= end; num++) {
@@ -56,24 +69,6 @@ class PerfectNumberRepositoryImpl extends PerfectNumberRepository {
         );
       }
     }
-    return perfectNumbers;
-  }
-
-  PerfectNumberEntity _findOfflinePerfectNumber(int number) {
-    if (_containIntoLocaList(number)) {
-      return _listPerfectNumbersMaxInt.firstWhere(
-        (element) => element.number == number,
-      );
-    } else {
-      return PerfectNumberEntity(
-        number: number,
-        isPerfect: false,
-        isCalculating: false,
-      );
-    }
-  }
-
-  bool _containIntoLocaList(int number) {
-    return _listPerfectNumbersMaxInt.any((element) => element.number == number);
+    return Success(perfectNumbers);
   }
 }

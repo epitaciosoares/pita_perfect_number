@@ -17,7 +17,9 @@ class PerfectNumberApiImpl implements PerfectNumberApi {
   @override
   AsyncResult<PerfectNumberEntity> checkPerfectNumber(int number) async {
     try {
-      final response = await _dio.get('/perfectnumber/check?number=$number');
+      final response = await _dio
+          .get('/perfectnumber/check?number=$number')
+          .timeout(const Duration(seconds: 10));
       return Success(
         PerfectNumberEntity(
           number: response.data['number'],
@@ -42,9 +44,9 @@ class PerfectNumberApiImpl implements PerfectNumberApi {
     int end,
   ) async {
     try {
-      final response = await _dio.get(
-        '/perfectnumber/find?start=$start&end=$end',
-      );
+      final response = await _dio
+          .get('/perfectnumber/find?start=$start&end=$end')
+          .timeout(const Duration(seconds: 10));
       return Success(
         (response.data as List)
             .map(
