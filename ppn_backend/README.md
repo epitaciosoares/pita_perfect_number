@@ -36,13 +36,13 @@ dart pub get
 ### 3. Gerar código (build_runner)
 
 ```bash
-dart run build_runner build
+dart dart run build_runner build
 ```
 
 ### 4. Executar o servidor
 
 ```bash
-dart run bin/server.dart
+dart dart run bin/server.dart
 ```
 
 O servidor iniciará na porta **8080** por padrão.
